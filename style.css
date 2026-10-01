@@ -1,0 +1,184 @@
+/* variaveis para facilidade de temas */
+
+:root {
+    --gradient-fundo: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    --fundo-cartao: #ffffff;
+    --cor-texto: #2d3748;
+    --cor-primaria: #6c5ce7;
+    --cor-primaria-destaque: #5b4c4c;
+    --cor-borda: #edf2f7;
+    --cor-perigo: #ff7675;
+    --cor-concluido: #48bb78;
+}
+
+body.modo-escuro {
+    --gradient-fundo: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    --fundo-cartao: #1a202c;
+    --cor-texto: #f7fafc;
+    --cor-borda: #4a5568;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background 0.3s, color 0.3s;
+}
+
+body {
+    background: var(--gradient-fundo);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.cartao-aplicacao {
+    background-color: var(--fundo-cartao);
+    color: var(--cor-texto);
+    width: 100%;
+    max-width: 630px;
+    border-radius: 30px;
+    padding: 45px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.cabecalho-aplicacao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.cabecalho-aplicacao h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.botao-icone {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--cor-texto);
+    cursor: pointer;
+}
+
+.caixa-entrada {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid var(--cor-borda);
+    border-radius: 15px;
+    outline: none;
+    font-size: 1.1rem;
+    background: transparent;
+    color: var(--cor-texto);
+}
+
+input[type="text"]:focus {
+    border-color: var(--cor-primaria);
+}
+
+.botao-principal {
+    background: var(--cor-primaria);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.1s, background 0.2s;
+}
+
+.botao-principal:hover {
+    background: var(--cor-primaria-destaque);
+    transform: translateY(-2px);
+}
+
+.lista-tarefas {
+    list-style: none;
+    max-height: 280px;
+    overflow-y: auto;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.item-tarefa {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 12px 15px;
+    background: var(--cor-borda);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    animation: aparecer 0.3s ease;
+}
+
+/* TAREFA CONCLUÍDA */
+
+.item-tarefa.concluida {
+    background-color: var(--cor-concluido);
+    color: white;
+}
+
+.item-tarefa.concluida span {
+    text-decoration: line-through;
+    color: white;
+}
+
+.item-tarefa.concluida .botao-acao {
+    color: white;
+}
+
+
+/* ÁREA DOS BOTÕES */
+
+.acoes-tarefa {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.botao-acao {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--cor-texto);
+}
+
+
+/* HOVER DO BOTÃO EXCLUIR */
+
+.item-tarefa:has(.botao-acao.excluir:hover) {
+    background-color: var(--cor-perigo);
+    color: white;
+}
+
+.item-tarefa:has(.botao-acao.excluir:hover) span {
+    color: white;
+}
+
+.item-tarefa:has(.botao-acao.excluir:hover) .botao-acao {
+    color: white;
+}
+
+
+/* CONTADOR */
+
+.rodapa_aplicacao {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: var(--cor-concluido);
+    text-align: center;
+}
+
